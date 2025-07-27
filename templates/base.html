@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>{% block title %}{% endblock title %}</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	{% include 'layout/style.html' %}
+</head>
+<body class="goto-here">
+	{% include 'components/topbar.html' %}
+	{% include 'components/navbar.html' %}
+	{% block main %}
+	{% endblock main %}
+	{% include 'components/footer.html' %}
+	{% include 'layout/script.html' %}
+</body>
+
+</html>

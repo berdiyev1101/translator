@@ -1,0 +1,78 @@
+<section class="filter">
+		<div class="filter-section">
+			<select onchange="filter(this.value, 'price')">
+				<option disabled selected>Price Filter</option>
+				<option value="low"> $50</option>
+				<option value="medium">$50 - $100</option>
+				<option value="high"> $100</option>
+			</select>
+
+			<select onchange="filter(this.value, 'time')">
+				<option disabled selected>Time Filter</option>
+				<option value="24h"> 4 hours</option>
+				<option value="7d"> 7 Days</option>
+				<option value="30d"> 3 Days</option>
+			</select>
+
+			<select onchange="filter(this.value, 'country')">
+				<option disabled selected>Any Country</option>
+				<option value="uz">Uzbekistan</option>
+				<option value="us">Tashkent</option>
+				<option value="de">Bukhara</option>
+			</select>
+
+			<select onchange="filter(this.value, 'language')">
+				<option disabled selected>Language Filter</option>
+				<option value="en">English</option>
+				<option value="uz">Uzbek</option>
+				<option value="ru">Russian</option>
+			</select>
+
+			<select onchange="sort(this.value)">
+				<option disabled selected>Sort by Price</option>
+				<option value="high">Highest</option>
+				<option value="low">Lowest</option>
+			</select>
+
+			<div class="search-box">
+				<input type="text" id="searchInput" placeholder="Search..." />
+				<button class="button" onclick="search()">🔍</button>
+			</div>
+		</div>
+
+		<div class="card">
+			{% for image in images %}
+			<div class="card horizontal">
+				<div class="card-left">
+					<img class="image" src="{{image.image.url}}" alt="">
+				</div>
+				<div class="card-middle">
+					<div class="top">
+						<span class="name">{{image.title}}</span>
+					</div>
+					<div class="info">
+						<p>Perfect for your needs.</p>
+						<p>Best Teacher.</p>
+						<p>experience 3 years</p>
+						<span class="price">$99</span>
+					</div>
+				</div>
+				<div class="card-right">
+					<div class="rating">⭐ 4.9</div>
+					<button class="select">Select</button>
+
+					<div class="icons">
+					  <span class="heart" onclick="toggleHeart(this)">🤍</span>
+					  💬
+					</div>
+				  </div>
+			</div>
+			{% endfor %}
+		</div>
+		<script>
+			function toggleHeart(el) {
+			  el.classList.toggle('liked');
+			  el.textContent = el.classList.contains('liked') ? '❤️' : '🤍';
+			}
+        </script>
+	</section>
